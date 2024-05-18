@@ -33,12 +33,12 @@ if(mode=='vpn'):
 if(mode=='local'):
     def nsefetch(payload):
         try:
-            output = requests.get(payload,headers=headers,timeout=5).json()
+            output = requests.get(payload,headers=headers,timeout=10).json()
             print(output)
         except ValueError:
             s =requests.Session()
-            output = s.get("http://nseindia.com",headers=headers)
-            output = s.get(payload,headers=headers).json()
+            output = s.get("http://nseindia.com",headers=headers,timeout=10)
+            output = s.get(payload,headers=headers,timeout=10).json()
         return output
 
 
